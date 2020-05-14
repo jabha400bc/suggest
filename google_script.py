@@ -1,4 +1,4 @@
-#!/home/pbisen/anaconda3/envs/myenv/bin/python3
+#!/usr/bin/python3
 import pandas as pd
 import numpy as np
 import requests
