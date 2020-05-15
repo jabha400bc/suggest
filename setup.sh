@@ -63,8 +63,7 @@ function setup_myenv(){
     . /softwares/setenv.sh \
     && conda create --name myenv --clone base \
     && conda activate myenv \
-    && conda install -y -c conda-forge findspark ipywidgets nodejs spacy \
-    && pip install --upgrade boto3 click tensorflow
+    && pip install --upgrade boto3
 }
 function resize_cloud9(){
     set -x \
