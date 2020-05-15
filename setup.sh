@@ -6,6 +6,15 @@ export CODE_SERVER_URL_BKUP='https://pankajbsn-public-images.s3.amazonaws.com/co
 export VSCODE_PY_EXTN_URL='https://github.com/microsoft/vscode-python/releases/download/2020.3.71659/ms-python-release.vsix'
 export VSCODE_PY_EXTN_URL_BKUP='https://pankajbsn-public-images.s3.amazonaws.com/ms-python-release.vsix'
 #####################################################################################################
+function install_softwares(){
+    set -x \
+    && make_software_home \
+    && update_os \
+    && create_setenv \
+    && install_anaconda \
+    && setup_myenv \
+    && set +x
+}
 export SOFTWARE_HOME=/softwares
 function make_software_home(){
     sudo mkdir -p $SOFTWARE_HOME \
