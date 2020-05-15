@@ -9,6 +9,7 @@ function init(){
     && . ./setup.sh \
     && install_softwares \
     && get_suggestions \
+    && sudo shutdown -h now \
     && set +x
 }
 init > /tmp/init_log.txt 2>&1
