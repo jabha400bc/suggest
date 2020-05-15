@@ -22,9 +22,7 @@ function make_software_home(){
     && sudo chmod -R 777 $SOFTWARE_HOME
 }
 function update_os(){
-    sudo apt update -y \
-    && sudo apt upgrade -y \
-    && sudo apt-get install -y bsdtar
+    sudo apt update -y
 }
 function download_url_bkup(){
     MAIN_URL=$1
