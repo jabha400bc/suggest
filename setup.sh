@@ -16,6 +16,7 @@ function install_softwares(){
     && setup_myenv \
     && install_awscli \
     && . /softwares/setenv.sh \
+    && sudo shutdown -h now \
     && set +x
 }
 export SOFTWARE_HOME=/softwares
