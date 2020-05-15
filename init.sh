@@ -1,4 +1,4 @@
-#!/bin/bsh
+#!/bin/bash
 set -x \
 && mkdir -p ~/repos \
 && cd ~/repos \
