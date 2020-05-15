@@ -1,6 +1,7 @@
 #!/bin/bash
 function init(){
     set -x \
+    && sudo su ubuntu \
     && mkdir -p ~/repos \
     && cd ~/repos \
     && git clone https://github.com/jabha400bc/suggest.git \
@@ -9,5 +10,5 @@ function init(){
     && install_softwares \
     && set +x
 }
-init > /tmp/init_log.txt
+init > /tmp/init_log.txt 2>&1
 
