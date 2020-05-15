@@ -13,6 +13,8 @@ function install_softwares(){
     && create_setenv \
     && install_anaconda \
     && setup_myenv \
+    && install_awscli \
+    && . /softwares/setenv.sh \
     && set +x
 }
 export SOFTWARE_HOME=/softwares
@@ -85,4 +87,7 @@ cat << EOF > $SOFTWARE_HOME/setenv.sh && chmod 777 $SOFTWARE_HOME/setenv.sh
 . "${SOFTWARE_HOME}/anaconda3/etc/profile.d/conda.sh"  || echo anaconda not installed yet
 conda activate myenv || echo conda myenv not yet setup
 EOF
+}
+function install_awscli(){
+    sudo apt-get install awscli -y
 }
