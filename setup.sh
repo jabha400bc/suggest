@@ -6,6 +6,7 @@ export CODE_SERVER_URL_BKUP='https://pankajbsn-public-images.s3.amazonaws.com/co
 export VSCODE_PY_EXTN_URL='https://github.com/microsoft/vscode-python/releases/download/2020.3.71659/ms-python-release.vsix'
 export VSCODE_PY_EXTN_URL_BKUP='https://pankajbsn-public-images.s3.amazonaws.com/ms-python-release.vsix'
 #####################################################################################################
+
 function install_softwares(){
     set -x \
     && make_software_home \
@@ -90,4 +91,16 @@ EOF
 }
 function install_awscli(){
     sudo apt-get install awscli -y
+}
+function set_aws_region(){
+    export AWS_REGION=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | sed 's\-\_\g')
+}
+function get_suggestions(){
+    set -x \
+    && set_aws_region \
+    && cd ~/repos/suggest \
+    && ./google_script.py \
+    && mv Results.csv ${AWS_REGION}_Results.csv \
+    && aws s3 cp ${AWS_REGION}_Results.csv s3://pankajbsnawss3clipboard/suggest/ \
+    && set +x
 }

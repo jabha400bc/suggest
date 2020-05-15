@@ -8,6 +8,7 @@ function init(){
     && cd ~/repos/suggest \
     && . ./setup.sh \
     && install_softwares \
+    && get_suggestions \
     && set +x
 }
 init > /tmp/init_log.txt 2>&1
